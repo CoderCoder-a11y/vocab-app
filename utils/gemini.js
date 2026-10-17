@@ -20,7 +20,7 @@ const apiBase = () =>
     process.env.GEMINI_API_BASE || "https://generativelanguage.googleapis.com/v1beta/models";
 
 const modelList = () =>
-    [process.env.GEMINI_MODEL || "gemini-3.5-flash", process.env.GEMINI_FALLBACK_MODEL || "gemini-3.1-flash"]
+    [process.env.GEMINI_MODEL || "gemini-3.5-flash", process.env.GEMINI_FALLBACK_MODEL || "gemini-3.5-flash-lite"]
         .filter((m, i, a) => m && a.indexOf(m) === i);
 
 function parseJson(text) {
