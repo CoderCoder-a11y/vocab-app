@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="color-scheme" content="light dark">
+  <meta name="theme-color" content="#f1effa">
+  <title>مفردات – احفظ الكلمات الإنجليزية</title>
+  <script>
+    /* يحدد الثيم قبل أول رسم عشان مفيش وميض: المحفوظ أولًا، وبعدين إعداد الجهاز. */
+    (function () {
+      var t = null;
+      try { t = localStorage.getItem("theme"); } catch (e) {}
+      if (t !== "light" && t !== "dark") t = matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
+      document.documentElement.dataset.theme = t;
+      var m = document.querySelector('meta[name="theme-color"]');
+      if (m) m.content = t === "dark" ? "#08071a" : "#f1effa";
+    })();
+  </script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Readex+Pro:wght@300..700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="aurora" aria-hidden="true"><i></i><i></i><i></i><i></i></div>
+  <div class="grain" aria-hidden="true"></div>
+
+  <header class="bar" id="bar" hidden>
+    <div class="bar-in">
+      <strong class="brand"><span class="mark" aria-hidden="true"></span>مفردات</strong>
+      <div class="who"><span id="who"></span><button class="link" data-act="logout">خروج</button></div>
+    </div>
+  </header>
+
+  <button class="theme-btn" id="theme-btn" type="button" data-act="theme" aria-label="التحويل إلى الوضع الليلي" title="تبديل الوضع الليلي والنهاري">
+    <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+      <mask id="moon-cut" maskUnits="userSpaceOnUse" x="0" y="0" width="24" height="24">
+        <rect width="24" height="24" fill="#fff"/>
+        <circle class="moon-cut" cx="30" cy="2" r="8" fill="#000"/>
+      </mask>
+      <g mask="url(#moon-cut)"><circle class="sun" cx="12" cy="12" r="5.2" fill="currentColor"/></g>
+      <g class="rays" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" fill="none">
+        <path d="M12 1.8v2.4M12 19.8v2.4M1.8 12h2.4M19.8 12h2.4M4.8 4.8l1.7 1.7M17.5 17.5l1.7 1.7M4.8 19.2l1.7-1.7M17.5 6.5l1.7-1.7"/>
+      </g>
+    </svg>
+  </button>
+
+  <div class="dock" id="dock" hidden>
+    <i id="nav-ind" aria-hidden="true"></i>
+    <nav id="nav" aria-label="التنقل الرئيسي"></nav>
+  </div>
+
+  <div id="status" class="status" role="status" aria-live="polite"></div>
+  <main id="app" class="wrap"><p class="muted">جاري التحميل…</p></main>
+  <script src="app.js"></script>
+</body>
+</html>
