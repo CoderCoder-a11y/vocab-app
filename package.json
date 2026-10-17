@@ -1,0 +1,26 @@
+{
+  "name": "english-vocab-app",
+  "version": "1.1.0",
+  "description": "موقع تعلم وحفظ الكلمات الإنجليزية (Express + MongoDB + Gemini)",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node --watch server.js",
+    "test": "node --test"
+  },
+  "engines": {
+    "node": ">=18"
+  },
+  "dependencies": {
+    "bcrypt": "^6.0.0",
+    "cookie-parser": "^1.4.6",
+    "dotenv": "^16.4.5",
+    "express": "^4.19.2",
+    "express-rate-limit": "^8.6.1",
+    "ioredis": "^5.4.1",
+    "jsonwebtoken": "^9.0.2",
+    "mongoose": "^8.2.0",
+    "ts-fsrs": "5.2.3",
+    "web-push": "3.6.7"
+  }
+}
